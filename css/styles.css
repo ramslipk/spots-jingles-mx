@@ -784,6 +784,60 @@ section[id] {
   transform: scale(1.045);
 }
 
+/* Studio Media Preview Stage (Video Reel, Real Flyer & Sheet Music) */
+.media-stage {
+  position: relative;
+  height: 360px;
+  background: radial-gradient(circle at 50% 25%, rgba(0, 210, 255, 0.14), rgba(6, 9, 19, 0.96) 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .media-stage {
+    height: 390px;
+  }
+}
+
+.media-stage-gold {
+  background: radial-gradient(circle at 50% 25%, rgba(245, 158, 11, 0.14), rgba(6, 9, 19, 0.96) 75%);
+}
+
+/* Media Lightbox Modal */
+.media-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(3, 6, 16, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.media-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.media-lightbox-panel {
+  transform: translate3d(0, 14px, 0) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.media-lightbox.is-open .media-lightbox-panel {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
 /* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
   html {

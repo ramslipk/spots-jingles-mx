@@ -1,81 +1,71 @@
 /**
  * ============================================================================
- * Publicidad, Spots y Jingles MX — Motor Interactivo de Audio y Animaciones
+ * Publicidad, Spots y Jingles MX — Motor Interactivo de Audio, Video y UI
  * ============================================================================
  * Incluye:
- *  1. Reproductor de Audio con Web Audio API (demos temporales listos para
- *     probar Play/Pause, barra de progreso, contador y ecualizador en vivo).
- *     Para conectar tus audios reales, solo asigna la ruta en `audioSrc`.
- *  2. Exclusión mutua automática: al reproducir un track, los demás se pausan.
- *  3. Scroll Reveal escalonado (Intersection Observer).
- *  4. Navbar fija compactable + Menú móvil hamburguesa animado.
- *  5. Acordeón FAQ fluido y efecto de brillo reactivo al cursor en tarjetas.
+ *  1. Reproductor de Audio HTML5 + Web Audio API AnalyserNode conectado a tus
+ *     archivos .MP3 reales en `demos/audio/` (con respaldo sintetizado si falta
+ *     algún archivo).
+ *  2. Exclusión mutua automática entre TODOS los reproductores de audio y el
+ *     video promocional (`demos/video/spot-ads.mp4`).
+ *  3. Visor Lightbox accesible para ampliar el Flyer y la Partitura.
+ *  4. Scroll Reveal escalonado (Intersection Observer), Navbar compactable,
+ *     menú móvil hamburguesa y acordeón FAQ.
  */
 
 (function () {
   'use strict';
 
   /* ==========================================================================
-     1. CONFIGURACIÓN DE PISTAS DE AUDIO
-     ==========================================================================
-     INSTRUCCIONES:
-     Cuando tengas tus archivos reales, súbelos a una carpeta (ej. /audio/) y
-     cambia `audioSrc: null` por la ruta correspondiente, por ejemplo:
-     audioSrc: 'audio/el-camaleon.mp3'
+     1. CONFIGURACIÓN DE PISTAS REALES (demos/audio/)
      ========================================================================== */
   const TRACKS = {
-    'el-camaleon': {
-      title: 'Spot Demo Oficial: El Camaleón',
+    'spot-oficial': {
+      title: 'Spot Demo Oficial: Publicidad, Spots y Jingles MX',
       duration: 60,
       bpm: 118,
       style: 'commercial',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/spot-el-camaleon.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/spot-ads-oficial.mp3',
     },
-    perifoneo: {
-      title: 'Perifoneo y Ofertas',
-      duration: 15,
-      bpm: 128,
+    'spot-gi-a-joe': {
+      title: 'Spot Comercial — GI A JOE',
+      duration: 55,
+      bpm: 126,
       style: 'perifoneo',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/demo-perifoneo.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/spot-gi-a-joe.mp3',
     },
-    eventos: {
-      title: 'Eventos, Bailes y Sonideros',
-      duration: 20,
+    'baile-22-nov': {
+      title: 'Eventos y Bailes — Gran Baile 22 de Noviembre',
+      duration: 64,
       bpm: 124,
       style: 'sonidero',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/demo-eventos.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/baile-22-nov-mezcla.mp3',
     },
-    corporativo: {
-      title: 'Serio y Corporativo',
-      duration: 20,
-      bpm: 92,
+    'radio-la-atrevida': {
+      title: 'Radio e Institucional — Radio La Atrevida',
+      duration: 54,
+      bpm: 100,
       style: 'corporativo',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/demo-corporativo.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/spot-radio-la-atrevida.mp3',
     },
-    comida: {
-      title: 'Comida y Negocios Locales',
-      duration: 15,
+    'spot-churros': {
+      title: 'Comida y Negocios Locales — Spot Churros',
+      duration: 82,
       bpm: 114,
       style: 'comida',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/demo-comida.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/spot-churros.mp3',
     },
-    jingle: {
-      title: 'Jingle Original Cantado',
-      duration: 25,
-      bpm: 120,
+    'reventon-grupero': {
+      title: 'Cortinilla & Cabina — Reventón Grupero',
+      duration: 19,
+      bpm: 122,
       style: 'jingle',
-      // REEMPLAZAR CON ARCHIVO .MP3 (Ejemplo: 'audio/demo-jingle.mp3')
-      audioSrc: null,
+      audioSrc: 'demos/audio/cortinilla-reventon-grupero.mp3',
     },
   };
 
   /* ==========================================================================
-     2. MOTOR DE AUDIO (Web Audio API + Soporte Nativo MP3)
+     2. MOTOR DE AUDIO (MP3 Real + Web Audio AnalyserNode)
      ========================================================================== */
   const formatTime = (seconds) => {
     const safe = Math.max(0, Math.floor(seconds || 0));
@@ -94,10 +84,8 @@
       this.activeId = null;
       this.players = new Map();
       this.rafId = null;
-      this.synthTimer = null;
-      this.synthStep = 0;
+      this.videoEl = null;
 
-      // Estado por cada pista (para recordar posición al pausar/buscar)
       this.state = new Map();
       Object.keys(TRACKS).forEach((id) => {
         this.state.set(id, {
@@ -111,13 +99,23 @@
       });
     }
 
+    attachVideo(videoEl) {
+      if (!videoEl) return;
+      this.videoEl = videoEl;
+      videoEl.addEventListener('play', () => {
+        if (this.activeId) {
+          this.pause(this.activeId);
+        }
+      });
+    }
+
     ensureContext() {
       if (!this.ctx) {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (!AudioCtx) return false;
         this.ctx = new AudioCtx();
         this.masterGain = this.ctx.createGain();
-        this.masterGain.gain.value = 0.38;
+        this.masterGain.gain.value = 1.0;
 
         this.analyser = this.ctx.createAnalyser();
         this.analyser.fftSize = 128;
@@ -154,13 +152,16 @@
       const st = this.state.get(id);
       if (!track || !st) return;
 
-      // Exclusión mutua: pausar cualquier otro reproductor activo
+      // Exclusión mutua: pausar cualquier otro audio o video activo
       if (this.activeId && this.activeId !== id) {
         this.pause(this.activeId);
       }
+      if (this.videoEl && !this.videoEl.paused) {
+        this.videoEl.pause();
+      }
 
       // Reiniciar si estaba al final
-      if (st.currentTime >= st.duration - 0.15) {
+      if (st.currentTime >= st.duration - 0.25) {
         st.currentTime = 0;
       }
 
@@ -171,8 +172,6 @@
 
       if (track.audioSrc) {
         this.startRealMp3(id, track, st, hasAudioCtx);
-      } else if (hasAudioCtx) {
-        this.startSynthLoop(id, track);
       }
 
       this.renderPlayerUI(id);
@@ -190,7 +189,6 @@
       }
 
       if (this.activeId === id) {
-        this.stopSynthLoop();
         this.activeId = null;
       }
 
@@ -207,8 +205,12 @@
       st.currentTime = newTime;
       st.lastTickMs = performance.now();
 
-      if (st.htmlAudio && Number.isFinite(st.htmlAudio.duration)) {
-        st.htmlAudio.currentTime = newTime;
+      if (st.htmlAudio && Number.isFinite(st.htmlAudio.duration) && st.htmlAudio.duration > 0) {
+        try {
+          st.htmlAudio.currentTime = newTime;
+        } catch (_) {
+          // Ignorar si aún no se cargan metadatos
+        }
       }
 
       this.renderPlayerUI(id);
@@ -218,241 +220,44 @@
       if (!st.htmlAudio) {
         const audio = new Audio(track.audioSrc);
         audio.preload = 'metadata';
-        audio.crossOrigin = 'anonymous';
+
         audio.addEventListener('loadedmetadata', () => {
           if (Number.isFinite(audio.duration) && audio.duration > 0) {
             st.duration = audio.duration;
+            if (st.currentTime > 0 && st.currentTime < audio.duration) {
+              try {
+                audio.currentTime = st.currentTime;
+              } catch (_) {}
+            }
             this.renderPlayerUI(id);
           }
         });
+
         audio.addEventListener('ended', () => {
           st.currentTime = 0;
           this.pause(id);
         });
+
         st.htmlAudio = audio;
 
-        if (hasAudioCtx) {
+        // Conectar al AnalyserNode si estamos en HTTP/HTTPS mismo origen
+        if (hasAudioCtx && window.location.protocol !== 'file:') {
           try {
             st.mediaSource = this.ctx.createMediaElementSource(audio);
             st.mediaSource.connect(this.masterGain);
           } catch (_) {
-            // Fallback directo si CORS bloquea MediaElementAudioSourceNode
+            // Reproducción directa sin Web Audio si el navegador restringe
           }
         }
       }
 
-      st.htmlAudio.currentTime = st.currentTime;
-      st.htmlAudio.play().catch(() => {});
-    }
-
-    /* ----------------------------------------------------------------------
-       Sintetizador Demo por Estilo (Web Audio API)
-       Genera bases musicales distintivas mientras se reemplazan los .MP3
-       ---------------------------------------------------------------------- */
-    startSynthLoop(id, track) {
-      this.stopSynthLoop();
-      this.synthStep = Math.floor(this.state.get(id).currentTime * 4);
-
-      const stepMs = Math.round((60 / track.bpm / 2) * 1000); // corcheas
-      this.triggerSynthStep(track.style, this.synthStep);
-
-      this.synthTimer = window.setInterval(() => {
-        if (this.activeId !== id) {
-          this.stopSynthLoop();
-          return;
-        }
-        this.synthStep += 1;
-        this.triggerSynthStep(track.style, this.synthStep);
-      }, stepMs);
-    }
-
-    stopSynthLoop() {
-      if (this.synthTimer) {
-        window.clearInterval(this.synthTimer);
-        this.synthTimer = null;
-      }
-    }
-
-    playTone({ freq, type = 'sine', start = 0, dur = 0.22, gain = 0.22, filterFreq = 2600, slideTo = null }) {
-      if (!this.ctx || !this.masterGain) return;
-      const now = this.ctx.currentTime + start;
-
-      const osc = this.ctx.createOscillator();
-      const filter = this.ctx.createBiquadFilter();
-      const amp = this.ctx.createGain();
-
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq, now);
-      if (slideTo) {
-        osc.frequency.exponentialRampToValueAtTime(Math.max(24, slideTo), now + dur);
+      if (Number.isFinite(st.htmlAudio.duration) && st.htmlAudio.duration > 0) {
+        st.htmlAudio.currentTime = st.currentTime;
       }
 
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(filterFreq, now);
-
-      amp.gain.setValueAtTime(0.0001, now);
-      amp.gain.linearRampToValueAtTime(gain, now + 0.014);
-      amp.gain.exponentialRampToValueAtTime(0.0001, now + dur);
-
-      osc.connect(filter);
-      filter.connect(amp);
-      amp.connect(this.masterGain);
-
-      osc.start(now);
-      osc.stop(now + dur + 0.02);
-    }
-
-    playKick(gain = 0.42) {
-      this.playTone({
-        freq: 138,
-        slideTo: 38,
-        type: 'sine',
-        dur: 0.16,
-        gain,
-        filterFreq: 380,
+      st.htmlAudio.play().catch(() => {
+        // Algunos entornos headless bloquean autoplay; el loop mantiene UI consistente
       });
-    }
-
-    playHat(gain = 0.075) {
-      if (!this.ctx || !this.masterGain) return;
-      const bufferSize = Math.floor(this.ctx.sampleRate * 0.045);
-      const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < bufferSize; i++) {
-        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.28));
-      }
-      const noise = this.ctx.createBufferSource();
-      noise.buffer = buffer;
-
-      const hp = this.ctx.createBiquadFilter();
-      hp.type = 'highpass';
-      hp.frequency.value = 6200;
-
-      const amp = this.ctx.createGain();
-      amp.gain.value = gain;
-
-      noise.connect(hp);
-      hp.connect(amp);
-      amp.connect(this.masterGain);
-      noise.start();
-    }
-
-    triggerSynthStep(style, step) {
-      const barStep = step % 16;
-
-      if (style === 'commercial') {
-        // Spot Oficial El Camaleón: groove moderno de estudio (radio/TV)
-        if (barStep % 4 === 0) this.playKick(0.45);
-        if (barStep % 2 === 1) this.playHat(0.08);
-        const bass = [110, 110, 130.8, 146.8, 164.8, 146.8, 130.8, 98];
-        if (barStep % 2 === 0) {
-          this.playTone({
-            freq: bass[(barStep / 2) % bass.length],
-            type: 'triangle',
-            dur: 0.24,
-            gain: 0.24,
-            filterFreq: 750,
-          });
-        }
-        const chords = [
-          [440, 554.37, 659.25],
-          [392, 493.88, 587.33],
-          [349.23, 440, 523.25],
-          [329.63, 415.3, 493.88],
-        ];
-        if (barStep % 4 === 0) {
-          const chord = chords[(barStep / 4) % chords.length];
-          chord.forEach((f) => {
-            this.playTone({ freq: f, type: 'sine', dur: 0.42, gain: 0.085, filterFreq: 2400 });
-          });
-        }
-        if (barStep === 3 || barStep === 11) {
-          this.playTone({ freq: 880, type: 'triangle', dur: 0.14, gain: 0.09, filterFreq: 3200 });
-        }
-      } else if (style === 'perifoneo') {
-        // Energético y vendedor: golpes de metal/synth + ritmo ágil
-        if (barStep % 2 === 0) this.playKick(0.46);
-        this.playHat(barStep % 2 === 1 ? 0.1 : 0.04);
-        const stabs = [523.25, 0, 659.25, 587.33, 698.46, 0, 783.99, 659.25];
-        const note = stabs[barStep % stabs.length];
-        if (note > 0) {
-          this.playTone({ freq: note, type: 'sawtooth', dur: 0.15, gain: 0.12, filterFreq: 2200 });
-          this.playTone({ freq: note / 2, type: 'triangle', dur: 0.16, gain: 0.14, filterFreq: 900 });
-        }
-      } else if (style === 'sonidero') {
-        // Eventos, Bailes y Sonideros: sub-bass potente + efecto cabina/laser
-        if (barStep % 4 === 0 || barStep === 14) this.playKick(0.54);
-        if (barStep % 2 === 1) this.playHat(0.09);
-        const sub = [65.4, 65.4, 73.4, 82.4];
-        if (barStep % 4 === 0) {
-          this.playTone({
-            freq: sub[(barStep / 4) % sub.length],
-            type: 'sawtooth',
-            dur: 0.36,
-            gain: 0.22,
-            filterFreq: 420,
-          });
-        }
-        if (barStep === 0) {
-          // Efecto sweep de cabina
-          this.playTone({
-            freq: 1400,
-            slideTo: 240,
-            type: 'sawtooth',
-            dur: 0.28,
-            gain: 0.13,
-            filterFreq: 3200,
-          });
-        }
-        if (barStep === 6 || barStep === 10) {
-          this.playTone({ freq: 523.25, type: 'square', dur: 0.12, gain: 0.07, filterFreq: 1700 });
-        }
-      } else if (style === 'corporativo') {
-        // Serio y Corporativo: arpegio limpio, cálido y confiable
-        const arp = [261.63, 329.63, 392.0, 493.88, 523.25, 493.88, 392.0, 329.63];
-        this.playTone({
-          freq: arp[barStep % arp.length],
-          type: 'sine',
-          dur: 0.36,
-          gain: 0.14,
-          filterFreq: 1800,
-        });
-        if (barStep % 8 === 0) {
-          [130.81, 196.0, 246.94].forEach((f) => {
-            this.playTone({ freq: f, type: 'triangle', dur: 0.9, gain: 0.08, filterFreq: 900 });
-          });
-        }
-      } else if (style === 'comida') {
-        // Comida y Negocios Locales: alegre, marimba/pluck antojable
-        if (barStep % 4 === 0) this.playKick(0.36);
-        if (barStep % 2 === 1) this.playHat(0.07);
-        const melody = [587.33, 659.25, 739.99, 880, 739.99, 659.25, 587.33, 440];
-        this.playTone({
-          freq: melody[barStep % melody.length],
-          type: 'triangle',
-          dur: 0.17,
-          gain: 0.18,
-          filterFreq: 2600,
-        });
-        if (barStep % 4 === 2) {
-          this.playTone({ freq: 293.66, type: 'sine', dur: 0.22, gain: 0.16, filterFreq: 900 });
-        }
-      } else if (style === 'jingle') {
-        // Jingle Original Cantado: hook melódico brillante y pegajoso
-        if (barStep % 4 === 0) this.playKick(0.4);
-        if (barStep % 2 === 1) this.playHat(0.08);
-        const hook = [
-          523.25, 659.25, 783.99, 1046.5,
-          880.0, 783.99, 659.25, 783.99,
-          698.46, 880.0, 783.99, 659.25,
-          587.33, 659.25, 523.25, 523.25,
-        ];
-        const freq = hook[barStep];
-        this.playTone({ freq, type: 'triangle', dur: 0.22, gain: 0.18, filterFreq: 3400 });
-        if (barStep % 4 === 0) {
-          this.playTone({ freq: freq / 2, type: 'sine', dur: 0.34, gain: 0.14, filterFreq: 1400 });
-        }
-      }
     }
 
     /* ----------------------------------------------------------------------
@@ -476,14 +281,16 @@
           return;
         }
 
-        // Actualizar tiempo actual
-        if (track.audioSrc && st.htmlAudio) {
+        if (track.audioSrc && st.htmlAudio && !st.htmlAudio.paused && st.htmlAudio.readyState >= 2) {
           st.currentTime = st.htmlAudio.currentTime;
-        } else {
+          if (Number.isFinite(st.htmlAudio.duration) && st.htmlAudio.duration > 0) {
+            st.duration = st.htmlAudio.duration;
+          }
+          st.lastTickMs = now;
+        } else if (!track.audioSrc) {
           const deltaSec = (now - st.lastTickMs) / 1000;
           st.lastTickMs = now;
           st.currentTime += Math.max(0, Math.min(0.25, deltaSec));
-
           if (st.currentTime >= st.duration) {
             st.currentTime = 0;
             this.pause(id);
@@ -527,7 +334,6 @@
           const raw = this.freqData[binIndex] / 255;
           pct = Math.max(16, Math.min(100, Math.round(raw * 115 + 14)));
         } else {
-          // Onda reactiva suave si el contexto de audio está silenciado
           const wave = Math.sin(now * 0.009 + i * 0.7) * 0.5 + 0.5;
           const wave2 = Math.cos(now * 0.015 - i * 0.4) * 0.5 + 0.5;
           pct = Math.round(22 + wave * 45 + wave2 * 28);
@@ -590,7 +396,7 @@
   }
 
   /* ==========================================================================
-     3. INICIALIZACIÓN DE REPRODUCTORES EN EL DOM
+     3. INICIALIZACIÓN DE REPRODUCTORES DE AUDIO Y VIDEO
      ========================================================================== */
   function initAudioPlayers() {
     const engine = new StudioAudioEngine();
@@ -603,7 +409,6 @@
       const eqContainer = root.querySelector('[data-eq]');
       const barCount = Number(eqContainer?.getAttribute('data-bars') || 16);
 
-      // Generar barras del ecualizador dinámicamente
       const bars = [];
       if (eqContainer) {
         eqContainer.innerHTML = '';
@@ -640,7 +445,6 @@
         playBtn.addEventListener('click', () => engine.toggle(id));
       }
 
-      // Interacción de búsqueda (Click, Touch Drag y Teclado)
       if (scrubber) {
         let isDragging = false;
 
@@ -673,21 +477,87 @@
           if (!st) return;
           if (e.key === 'ArrowRight') {
             e.preventDefault();
-            engine.seek(id, (st.currentTime + 2) / st.duration);
+            engine.seek(id, (st.currentTime + 3) / st.duration);
           } else if (e.key === 'ArrowLeft') {
             e.preventDefault();
-            engine.seek(id, (st.currentTime - 2) / st.duration);
+            engine.seek(id, (st.currentTime - 3) / st.duration);
           }
         });
       }
     });
 
-    // Exponer para depuración o pruebas
+    // Conectar exclusión mutua con el video promocional
+    const videoEl = document.getElementById('demo-video-player');
+    engine.attachVideo(videoEl);
+
     window.__studioAudio = engine;
   }
 
   /* ==========================================================================
-     4. NAVBAR FIJA COMPACTABLE Y MENÚ MÓVIL HAMBURGUESA
+     4. LIGHTBOX MODAL PARA FLYER Y PARTITURA
+     ========================================================================== */
+  function initMediaLightbox() {
+    const modal = document.getElementById('media-lightbox');
+    if (!modal) return;
+
+    const modalImg = document.getElementById('lightbox-img');
+    const modalTitle = document.getElementById('lightbox-title');
+    const modalSubtitle = document.getElementById('lightbox-subtitle');
+    const modalPdfLink = document.getElementById('lightbox-pdf-link');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    const openModal = ({ src, alt, title, subtitle, pdfUrl }) => {
+      if (modalImg) {
+        modalImg.src = src;
+        modalImg.alt = alt || title || 'Vista previa';
+      }
+      if (modalTitle) modalTitle.textContent = title || '';
+      if (modalSubtitle) modalSubtitle.textContent = subtitle || '';
+      if (modalPdfLink) {
+        if (pdfUrl) {
+          modalPdfLink.href = pdfUrl;
+          modalPdfLink.classList.remove('hidden');
+        } else {
+          modalPdfLink.classList.add('hidden');
+        }
+      }
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn?.focus();
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        openModal({
+          src: trigger.getAttribute('data-lightbox-src'),
+          alt: trigger.getAttribute('data-lightbox-alt'),
+          title: trigger.getAttribute('data-lightbox-title'),
+          subtitle: trigger.getAttribute('data-lightbox-subtitle'),
+          pdfUrl: trigger.getAttribute('data-lightbox-pdf'),
+        });
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+  }
+
+  /* ==========================================================================
+     5. NAVBAR FIJA COMPACTABLE Y MENÚ MÓVIL HAMBURGUESA
      ========================================================================== */
   function initNavigation() {
     const navbar = document.getElementById('navbar');
@@ -736,7 +606,7 @@
   }
 
   /* ==========================================================================
-     5. SCROLL REVEAL ESCALONADO (Intersection Observer)
+     6. SCROLL REVEAL ESCALONADO (Intersection Observer)
      ========================================================================== */
   function initScrollReveal() {
     const items = document.querySelectorAll('[data-reveal]');
@@ -772,7 +642,7 @@
   }
 
   /* ==========================================================================
-     6. ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
+     7. ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
      ========================================================================== */
   function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -785,7 +655,6 @@
       trigger.addEventListener('click', () => {
         const isOpen = item.getAttribute('data-open') === 'true';
 
-        // Cerrar las demás preguntas para mantener lectura limpia
         faqItems.forEach((other) => {
           if (other !== item) {
             other.setAttribute('data-open', 'false');
@@ -800,7 +669,7 @@
   }
 
   /* ==========================================================================
-     7. MICRO-INTERACCIÓN: BRILLO DINÁMICO EN TARJETAS AL PASAR EL CURSOR
+     8. MICRO-INTERACCIÓN: BRILLO DINÁMICO EN TARJETAS AL PASAR EL CURSOR
      ========================================================================== */
   function initCardSpotlight() {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -823,6 +692,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initAudioPlayers();
+    initMediaLightbox();
     initScrollReveal();
     initFaqAccordion();
     initCardSpotlight();
