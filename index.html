@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publicidad, Spots y Jingles MX | Audio Comercial, Jingles, Flyers y Partituras</title>
+  <meta
+    name="description"
+    content="Producción profesional de spots publicitarios de audio, jingles originales cantados, flyers publicitarios y transcripción de partituras en México. Entrega rápida por WhatsApp, pago con SPEI u OXXO."
+  />
+  <meta property="og:title" content="Publicidad, Spots y Jingles MX — Dale voz profesional a tu negocio" />
+  <meta
+    property="og:description"
+    content="Spots de audio para perifoneo, radio y redes sociales, jingles originales, flyers de alto impacto y partituras en PDF/MIDI. Envíos digitales a todo México."
+  />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#060913" />
+
+  <!-- Favicon SVG -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23060913'/%3E%3Crect x='24' y='12' width='16' height='26' rx='8' fill='%2300D2FF'/%3E%3Cpath d='M16 30a16 16 0 0 0 32 0' fill='none' stroke='%23F59E0B' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M32 46v8M23 54h18' stroke='%23F59E0B' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+  />
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS (Breakpoints estrictos Mobile-First: sm, md, lg, xl) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#060913',
+            slateStudio: '#0F172A',
+            cyanElectric: '#00D2FF',
+            goldWarm: '#F59E0B',
+            whatsapp: '#25D366',
+          },
+          fontFamily: {
+            display: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Estilos Personalizados del Estudio -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-obsidian text-slate-100 font-sans antialiased selection:bg-cyanElectric/30 selection:text-white overflow-x-hidden">
+  <!-- Fondo Ambiental de Estudio (Resplandores radiales GPU-acelerados) -->
+  <div class="studio-ambient-bg" aria-hidden="true">
+    <div class="glow-orb glow-orb-cyan"></div>
+    <div class="glow-orb glow-orb-gold"></div>
+    <div class="glow-orb glow-orb-deep"></div>
+    <div class="studio-noise"></div>
+  </div>
+
+  <!-- ========================================================================
+       1. NAVBAR FIJA Y RESPONSIVA
+       ======================================================================== -->
+  <header id="navbar" class="site-navbar fixed top-0 inset-x-0 z-50">
+    <div class="nav-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-3">
+        <!-- Logo -->
+        <a
+          href="#inicio"
+          id="nav-logo"
+          class="flex items-center gap-2.5 sm:gap-3 group min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric rounded-xl"
+        >
+          <span class="relative flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-cyanElectric/20 via-slateStudio to-goldWarm/20 border border-cyanElectric/35 shadow-[0_0_20px_-6px_rgba(0,210,255,0.6)] group-hover:border-cyanElectric/70 transition-colors">
+            <!-- Ícono Micrófono + Ondas -->
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-cyanElectric" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="9" y="3" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.9" />
+              <path d="M6 11a6 6 0 0 0 12 0" stroke="#F59E0B" stroke-width="1.9" stroke-linecap="round" />
+              <path d="M12 17v4M9 21h6" stroke="#F59E0B" stroke-width="1.9" stroke-linecap="round" />
+              <path d="M3 9v4M21 9v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.7" />
+            </svg>
+          </span>
+          <div class="min-w-0">
+            <span class="block font-display font-bold text-sm sm:text-base lg:text-lg leading-tight tracking-tight text-white truncate">
+              Publicidad, Spots y Jingles <span class="text-cyanElectric">MX</span>
+            </span>
+            <span class="hidden sm:block text-[11px] uppercase tracking-[0.14em] text-slate-400">
+              Estudio de Audio y Diseño
+            </span>
+          </div>
+        </a>
+
+        <!-- Menú de Escritorio (> 1024px) -->
+        <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-7">
+          <a href="#demos" class="text-sm font-medium text-slate-300 hover:text-cyanElectric transition-colors">Demos</a>
+          <a href="#servicios" class="text-sm font-medium text-slate-300 hover:text-cyanElectric transition-colors">Servicios</a>
+          <a href="#proceso" class="text-sm font-medium text-slate-300 hover:text-cyanElectric transition-colors">Proceso</a>
+          <a href="#garantias" class="text-sm font-medium text-slate-300 hover:text-cyanElectric transition-colors">Garantías</a>
+          <a
+            id="nav-cta-desktop"
+            href="https://wa.me/5212215752635?text=Hola,%20vengo%20de%20su%20página%20web%20y%20quiero%20cotizar%20un%20proyecto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp inline-flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl text-sm"
+          >
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.34.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.86 11.86 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+            </svg>
+            <span>Cotizar</span>
+          </a>
+        </nav>
+
+        <!-- Botón Hamburguesa Móvil / Tablet (< 1024px) -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+          class="hamburger-btn lg:hidden inline-flex flex-col items-center justify-center gap-[5px] w-12 h-12 rounded-xl border border-slate-700/80 bg-slateStudio/80 hover:border-cyanElectric/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric shrink-0"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer Desplegable Móvil / Tablet -->
+    <div id="mobile-drawer" class="mobile-drawer lg:hidden border-t border-slate-800/80 bg-obsidian/95 backdrop-blur-xl" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <nav aria-label="Navegación móvil" class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-2">
+          <a href="#demos" class="flex items-center justify-between min-h-[48px] px-4 rounded-xl text-base font-medium text-slate-200 hover:bg-slateStudio/80 hover:text-cyanElectric transition-colors">
+            <span>Demos de Audio y Diseño</span>
+            <span class="text-slate-500 text-sm">→</span>
+          </a>
+          <a href="#servicios" class="flex items-center justify-between min-h-[48px] px-4 rounded-xl text-base font-medium text-slate-200 hover:bg-slateStudio/80 hover:text-cyanElectric transition-colors">
+            <span>Servicios y Paquetes</span>
+            <span class="text-slate-500 text-sm">→</span>
+          </a>
+          <a href="#proceso" class="flex items-center justify-between min-h-[48px] px-4 rounded-xl text-base font-medium text-slate-200 hover:bg-slateStudio/80 hover:text-cyanElectric transition-colors">
+            <span>Cómo Funciona</span>
+            <span class="text-slate-500 text-sm">→</span>
+          </a>
+          <a href="#garantias" class="flex items-center justify-between min-h-[48px] px-4 rounded-xl text-base font-medium text-slate-200 hover:bg-slateStudio/80 hover:text-cyanElectric transition-colors">
+            <span>Garantías y Pagos (SPEI / OXXO)</span>
+            <span class="text-slate-500 text-sm">→</span>
+          </a>
+          <a href="#faq" class="flex items-center justify-between min-h-[48px] px-4 rounded-xl text-base font-medium text-slate-200 hover:bg-slateStudio/80 hover:text-cyanElectric transition-colors">
+            <span>Preguntas Frecuentes</span>
+            <span class="text-slate-500 text-sm">→</span>
+          </a>
+
+          <div class="pt-3 mt-1 border-t border-slate-800/90">
+            <a
+              id="nav-cta-mobile"
+              href="https://wa.me/5212215752635?text=Hola,%20vengo%20de%20su%20página%20web%20y%20quiero%20cotizar%20un%20proyecto"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp btn-whatsapp-pulse w-full inline-flex items-center justify-center gap-2.5 min-h-[52px] px-5 py-3 rounded-xl text-base"
+            >
+              <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.34.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.86 11.86 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+              </svg>
+              <span>Cotizar por WhatsApp</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- ======================================================================
+         2. HERO SECTION (12 Columnas en Escritorio, Apilado en Móvil/Tablet)
+         ====================================================================== -->
+    <section id="inicio" class="pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Columna Izquierda: Propuesta de Valor y CTAs -->
+          <div class="lg:col-span-7 text-left" data-reveal>
+            <!-- Badge Superior Animado -->
+            <div class="hero-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slateStudio/85 border border-cyanElectric/30 text-xs sm:text-sm font-medium text-cyan-100 mb-6 shadow-[0_0_24px_-10px_rgba(0,210,255,0.6)]">
+              <span>🇲🇽 Envíos digitales a todo México • Entrega rápida</span>
+            </div>
+
+            <!-- H1 Responsivo: text-3xl en móvil a text-6xl en PC -->
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-[-0.025em] text-white">
+              Dale voz profesional a tu negocio y <span class="text-cyanElectric">atrae más clientes</span>
+            </h1>
+
+            <!-- Subtítulo -->
+            <p class="mt-5 sm:mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              Producción de spots de audio, jingles originales, flyers publicitarios y transcripción de partituras listos para perifoneo, redes sociales, radio o tu local.
+            </p>
+
+            <!-- Botones de Acción (Apilados en móvil, en fila en tablet/PC) -->
+            <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+              <a
+                id="hero-cta-whatsapp"
+                href="https://wa.me/5212215752635?text=Hola,%20vengo%20de%20su%20página%20web%20y%20quiero%20cotizar%20un%20proyecto"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-whatsapp btn-whatsapp-pulse inline-flex items-center justify-center gap-2.5 min-h-[54px] px-6 sm:px-7 py-3.5 rounded-2xl text-base text-center"
+              >
+                <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.34.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.86 11.86 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+                </svg>
+                <span>Cotizar mi Spot por WhatsApp</span>
+              </a>
+
+              <a
+                id="hero-cta-demos"
+                href="#demos"
+                class="btn-neon-cyan inline-flex items-center justify-center gap-2.5 min-h-[54px] px-6 sm:px-7 py-3.5 rounded-2xl text-base font-semibold text-center"
+              >
+                <svg class="w-5 h-5 text-cyanElectric shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                </svg>
+                <span>Escuchar Demos Ahora</span>
+              </a>
+            </div>
+
+            <!-- Indicadores Rápidos de Confianza -->
+            <div class="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-3 sm:gap-6 max-w-xl">
+              <div>
+                <p class="font-display font-bold text-lg sm:text-xl text-white">24–48h</p>
+                <p class="text-xs sm:text-sm text-slate-400">Entrega rápida</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-lg sm:text-xl text-goldWarm">50% / 50%</p>
+                <p class="text-xs sm:text-sm text-slate-400">SPEI u OXXO</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-lg sm:text-xl text-cyanElectric">100% HD</p>
+                <p class="text-xs sm:text-sm text-slate-400">Libre de copyright</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Reproductor Destacado Consola de Estudio -->
+          <div class="lg:col-span-5" data-reveal data-reveal-delay="120">
+            <article
+              id="hero-featured-player"
+              data-audio-player="el-camaleon"
+              class="console-card rounded-3xl p-5 sm:p-6 lg:p-7"
+            >
+              <!-- Barra Superior de Consola -->
+              <div class="flex items-center justify-between gap-2 pb-4 border-b border-slate-800/90">
+                <div class="flex items-center gap-2">
+                  <span class="on-air-dot" aria-hidden="true"></span>
+                  <span data-player-status class="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-300">
+                    LISTO PARA ESCUCHAR
+                  </span>
+                </div>
+                <span class="px-2.5 py-1 rounded-md bg-goldWarm/15 border border-goldWarm/35 text-[11px] font-semibold text-goldWarm tracking-wide">
+                  MASTER • 1:00
+                </span>
+              </div>
+
+              <!-- Información del Spot Oficial -->
+              <div class="mt-5">
+                <span class="text-xs font-semibold uppercase tracking-[0.14em] text-cyanElectric">
+                  Producción Destacada
+                </span>
+                <h2 class="mt-1 font-display font-bold text-xl sm:text-2xl text-white leading-snug">
+                  Spot Demo Oficial: El Camaleón (1 Minuto)
+                </h2>
+                <p class="mt-1.5 text-sm text-slate-400">
+                  Locución comercial persuasiva, cama musical licenciada y mezcla profesional de estudio.
+                </p>
+              </div>
+
+              <!-- Pantalla del Visualizador de Ondas en Tiempo Real -->
+              <div class="mt-5 rounded-2xl bg-obsidian/85 border border-slate-800/90 px-4 py-4">
+                <div class="flex items-center justify-between text-[11px] text-slate-500 font-mono mb-2">
+                  <span>CH 01–02 STEREO</span>
+                  <span>48 kHz / 24-BIT</span>
+                </div>
+                <div class="eq-bars eq-bars-lg is-idle" data-eq data-bars="24" aria-hidden="true"></div>
+              </div>
+
+              <!-- Controles de Reproducción -->
+              <div class="mt-5 flex items-center gap-4">
+                <button
+                  id="play-el-camaleon"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir Spot Demo Oficial: El Camaleón"
+                  aria-pressed="false"
+                  class="play-btn w-14 h-14 sm:w-16 sm:h-16 shrink-0 bg-gradient-to-br from-cyanElectric to-sky-500 text-obsidian shadow-[0_0_28px_-4px_rgba(0,210,255,0.75)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <svg data-icon-play class="w-6 h-6 sm:w-7 sm:h-7 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-6 h-6 sm:w-7 sm:h-7 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Spot Demo Oficial: El Camaleón"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between text-xs font-mono text-slate-400 mt-0.5">
+                    <span data-time-current class="text-cyanElectric font-semibold">0:00</span>
+                    <span data-time-total>1:00</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pie de Consola -->
+              <div class="mt-5 pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-400">
+                <span class="inline-flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-goldWarm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 18V5l12-2v13" />
+                    <circle cx="6" cy="18" r="3" />
+                    <circle cx="18" cy="16" r="3" />
+                  </svg>
+                  <span>Audio listo para perifoneo, radio y redes</span>
+                </span>
+                <a
+                  href="https://wa.me/5212215752635?text=Hola,%20escuché%20el%20Spot%20Demo%20El%20Camaleón%20y%20quiero%20cotizar%20uno%20para%20mi%20negocio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-cyanElectric font-semibold hover:underline"
+                >
+                  Quiero uno así →
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. PORTAFOLIO INTERACTIVO DE AUDIO Y DISEÑO
+         ====================================================================== -->
+    <section id="demos" class="py-16 sm:py-20 lg:py-24 border-t border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Encabezado de Sección -->
+        <div class="max-w-3xl" data-reveal>
+          <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-cyanElectric mb-2.5">
+            Portafolio Interactivo
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white">
+            Escucha el estilo ideal para tu negocio
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-400 leading-relaxed">
+            Presiona <strong class="text-slate-200">Play</strong> en cualquiera de nuestros demos. Al reproducir un audio, el anterior se pausa automáticamente para que compares con total claridad.
+          </p>
+        </div>
+
+        <!-- Grid Responsivo de 5 Demos de Audio + Tarjeta Personalizada (1 col móvil, 2 tablet, 3 PC) -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          <!-- Demo 1: Perifoneo y Ofertas (15s) -->
+          <article
+            data-audio-player="perifoneo"
+            data-reveal
+            data-reveal-delay="0"
+            class="studio-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-cyanElectric/12 border border-cyanElectric/30 text-xs font-semibold text-cyanElectric">
+                  01 • Perifoneo
+                </span>
+                <span class="text-xs font-mono text-slate-400 bg-obsidian/70 px-2 py-0.5 rounded-md border border-slate-800">
+                  15 seg
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                Perifoneo y Ofertas
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                Energético y vendedor para tiendas, remates y perifoneo callejero.
+              </p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800/80">
+              <div class="eq-bars is-idle mb-3.5" data-eq data-bars="18" aria-hidden="true"></div>
+              <div class="flex items-center gap-3.5">
+                <button
+                  id="play-perifoneo"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir demo Perifoneo y Ofertas"
+                  aria-pressed="false"
+                  class="play-btn w-12 h-12 shrink-0 bg-cyanElectric/15 border border-cyanElectric/50 text-cyanElectric hover:bg-cyanElectric hover:text-obsidian focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric"
+                >
+                  <svg data-icon-play class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Perifoneo y Ofertas"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span data-time-current class="text-cyanElectric">0:00</span>
+                    <span data-time-total>0:15</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 2: Eventos, Bailes y Sonideros (20s) -->
+          <article
+            data-audio-player="eventos"
+            data-reveal
+            data-reveal-delay="80"
+            class="studio-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-cyanElectric/12 border border-cyanElectric/30 text-xs font-semibold text-cyanElectric">
+                  02 • Cabina & FX
+                </span>
+                <span class="text-xs font-mono text-slate-400 bg-obsidian/70 px-2 py-0.5 rounded-md border border-slate-800">
+                  20 seg
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                Eventos, Bailes y Sonideros
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                Impactante, con efectos de cabina y potencia.
+              </p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800/80">
+              <div class="eq-bars is-idle mb-3.5" data-eq data-bars="18" aria-hidden="true"></div>
+              <div class="flex items-center gap-3.5">
+                <button
+                  id="play-eventos"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir demo Eventos, Bailes y Sonideros"
+                  aria-pressed="false"
+                  class="play-btn w-12 h-12 shrink-0 bg-cyanElectric/15 border border-cyanElectric/50 text-cyanElectric hover:bg-cyanElectric hover:text-obsidian focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric"
+                >
+                  <svg data-icon-play class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Eventos, Bailes y Sonideros"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span data-time-current class="text-cyanElectric">0:00</span>
+                    <span data-time-total>0:20</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 3: Serio y Corporativo (20s) -->
+          <article
+            data-audio-player="corporativo"
+            data-reveal
+            data-reveal-delay="160"
+            class="studio-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-cyanElectric/12 border border-cyanElectric/30 text-xs font-semibold text-cyanElectric">
+                  03 • Institucional
+                </span>
+                <span class="text-xs font-mono text-slate-400 bg-obsidian/70 px-2 py-0.5 rounded-md border border-slate-800">
+                  20 seg
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                Serio y Corporativo
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                Confiable y cálido para consultorios, escuelas y empresas.
+              </p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800/80">
+              <div class="eq-bars is-idle mb-3.5" data-eq data-bars="18" aria-hidden="true"></div>
+              <div class="flex items-center gap-3.5">
+                <button
+                  id="play-corporativo"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir demo Serio y Corporativo"
+                  aria-pressed="false"
+                  class="play-btn w-12 h-12 shrink-0 bg-cyanElectric/15 border border-cyanElectric/50 text-cyanElectric hover:bg-cyanElectric hover:text-obsidian focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric"
+                >
+                  <svg data-icon-play class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Serio y Corporativo"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span data-time-current class="text-cyanElectric">0:00</span>
+                    <span data-time-total>0:20</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 4: Comida y Negocios Locales (15s) -->
+          <article
+            data-audio-player="comida"
+            data-reveal
+            data-reveal-delay="0"
+            class="studio-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-cyanElectric/12 border border-cyanElectric/30 text-xs font-semibold text-cyanElectric">
+                  04 • Gastronomía
+                </span>
+                <span class="text-xs font-mono text-slate-400 bg-obsidian/70 px-2 py-0.5 rounded-md border border-slate-800">
+                  15 seg
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                Comida y Negocios Locales
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                Dinámico, alegre y antojable.
+              </p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800/80">
+              <div class="eq-bars is-idle mb-3.5" data-eq data-bars="18" aria-hidden="true"></div>
+              <div class="flex items-center gap-3.5">
+                <button
+                  id="play-comida"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir demo Comida y Negocios Locales"
+                  aria-pressed="false"
+                  class="play-btn w-12 h-12 shrink-0 bg-cyanElectric/15 border border-cyanElectric/50 text-cyanElectric hover:bg-cyanElectric hover:text-obsidian focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric"
+                >
+                  <svg data-icon-play class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Comida y Negocios Locales"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span data-time-current class="text-cyanElectric">0:00</span>
+                    <span data-time-total>0:15</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Demo 5: Jingle Original Cantado (25s) -->
+          <article
+            data-audio-player="jingle"
+            data-reveal
+            data-reveal-delay="80"
+            class="studio-card card-gold rounded-2xl p-5 sm:p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-goldWarm/15 border border-goldWarm/40 text-xs font-semibold text-goldWarm">
+                  05 • Jingle Original
+                </span>
+                <span class="text-xs font-mono text-slate-400 bg-obsidian/70 px-2 py-0.5 rounded-md border border-slate-800">
+                  25 seg
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                Jingle Original Cantado
+              </h3>
+              <p class="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                Melodía original pegajosa para posicionar tu marca.
+              </p>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800/80">
+              <div class="eq-bars eq-gold is-idle mb-3.5" data-eq data-bars="18" aria-hidden="true"></div>
+              <div class="flex items-center gap-3.5">
+                <button
+                  id="play-jingle"
+                  type="button"
+                  data-play-btn
+                  aria-label="Reproducir demo Jingle Original Cantado"
+                  aria-pressed="false"
+                  class="play-btn play-btn-gold w-12 h-12 shrink-0 bg-goldWarm/15 border border-goldWarm/55 text-goldWarm hover:bg-goldWarm hover:text-obsidian focus:outline-none focus-visible:ring-2 focus-visible:ring-goldWarm"
+                >
+                  <svg data-icon-play class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.6-6.86a1 1 0 0 0 0-1.7L9.53 4.29A1 1 0 0 0 8 5.14Z" />
+                  </svg>
+                  <svg data-icon-pause class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="4" width="4.5" height="16" rx="1.5" />
+                    <rect x="13.5" y="4" width="4.5" height="16" rx="1.5" />
+                  </svg>
+                </button>
+                <div class="flex-1 min-w-0">
+                  <div
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Progreso de Jingle Original Cantado"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    data-scrubber
+                    class="scrubber-track"
+                  >
+                    <div class="scrubber-rail">
+                      <div data-scrubber-fill class="scrubber-fill"></div>
+                      <div data-scrubber-thumb class="scrubber-thumb"></div>
+                    </div>
+                  </div>
+                  <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                    <span data-time-current class="text-goldWarm">0:00</span>
+                    <span data-time-total>0:25</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta Complementaria de Simetría (Cotización a la Medida) -->
+          <article
+            data-reveal
+            data-reveal-delay="160"
+            class="studio-card card-gold rounded-2xl p-5 sm:p-6 flex flex-col justify-between border-dashed border-goldWarm/35"
+          >
+            <div>
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-lg bg-goldWarm/15 border border-goldWarm/35 text-xs font-semibold text-goldWarm mb-3">
+                <span>Producción a la Medida</span>
+              </div>
+              <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                ¿Necesitas otro tono o estilo?
+              </h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+                Adaptamos la voz, el ritmo y el guion exactamente a tu giro: ferreterías, clínicas, campañas, promociones de temporada o perifoneo local.
+              </p>
+            </div>
+            <div class="mt-6">
+              <a
+                href="https://wa.me/5212215752635?text=Hola,%20quiero%20cotizar%20un%20audio%20personalizado%20para%20mi%20negocio"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-whatsapp w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-4 py-3 rounded-xl text-sm"
+              >
+                <span>Solicitar Demo para mi Giro</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Sub-sección Visual: Flyers Publicitarios y Transcripción de Partituras -->
+        <div class="mt-14 lg:mt-20">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-7" data-reveal>
+            <div>
+              <span class="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-goldWarm">
+                Diseño Gráfico & Notación Musical
+              </span>
+              <h3 class="mt-1 font-display font-bold text-2xl sm:text-3xl text-white">
+                Flyers Publicitarios y Transcripción de Partituras
+              </h3>
+            </div>
+            <p class="text-sm text-slate-400 max-w-md">
+              Complementa tu campaña sonora con gráficos llamativos o digitaliza tus melodías con precisión editorial.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <!-- Tarjeta Visual 1: Flyers Publicitarios -->
+            <article data-reveal data-reveal-delay="0" class="studio-card rounded-3xl overflow-hidden flex flex-col">
+              <div class="relative aspect-video overflow-hidden bg-slateStudio">
+                <img
+                  src="assets/flyers-mockup.jpg"
+                  alt="Mockup de flyers publicitarios modernos para negocios mexicanos y eventos en vivo"
+                  loading="lazy"
+                  class="mockup-image w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/20 to-transparent"></div>
+                <div class="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md bg-obsidian/80 backdrop-blur-md border border-cyanElectric/35 text-[11px] font-semibold text-cyan-100">
+                    Instagram / Facebook / WhatsApp
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-obsidian/80 backdrop-blur-md border border-goldWarm/35 text-[11px] font-semibold text-amber-200">
+                    Listo para Imprenta
+                  </span>
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-display font-bold text-xl sm:text-2xl text-white">
+                    Flyers Publicitarios de Alto Impacto
+                  </h4>
+                  <p class="mt-2 text-sm sm:text-base text-slate-400 leading-relaxed">
+                    Diseños modernos pensados para detener el scroll en redes sociales, promocionar aperturas, menús, bailes, ofertas 2x1 o imprimir volantes nítidos.
+                  </p>
+                </div>
+                <div class="mt-6">
+                  <a
+                    id="portfolio-cta-flyer"
+                    href="https://wa.me/5212215752635?text=Hola,%20me%20interesa%20cotizar%20un%20Flyer%20Publicitario%20para%20mi%20negocio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-neon-cyan w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-xl text-sm font-semibold"
+                  >
+                    <span>Cotizar Flyer por WhatsApp</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Tarjeta Visual 2: Transcripción de Partituras -->
+            <article data-reveal data-reveal-delay="100" class="studio-card card-gold rounded-3xl overflow-hidden flex flex-col">
+              <div class="relative aspect-video overflow-hidden bg-slateStudio">
+                <img
+                  src="assets/partituras-mockup.jpg"
+                  alt="Mockup de transcripción profesional de partituras musicales limpias en formato PDF y MIDI"
+                  loading="lazy"
+                  class="mockup-image w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/20 to-transparent"></div>
+                <div class="absolute bottom-3 left-4 right-4 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md bg-obsidian/80 backdrop-blur-md border border-goldWarm/40 text-[11px] font-semibold text-amber-200">
+                    PDF Alta Resolución
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-obsidian/80 backdrop-blur-md border border-cyanElectric/35 text-[11px] font-semibold text-cyan-100">
+                    Archivo MIDI / Audio Guía
+                  </span>
+                </div>
+              </div>
+              <div class="p-5 sm:p-6 lg:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-display font-bold text-xl sm:text-2xl text-white">
+                    Transcripción de Partituras
+                  </h4>
+                  <p class="mt-2 text-sm sm:text-base text-slate-400 leading-relaxed">
+                    Convertimos tu audio, video o grabación tarareada en partituras limpias, legibles y precisas para registro, ensayos, arreglos o estudio (PDF / MIDI).
+                  </p>
+                </div>
+                <div class="mt-6">
+                  <a
+                    id="portfolio-cta-partitura"
+                    href="https://wa.me/5212215752635?text=Hola,%20me%20interesa%20cotizar%20una%20Transcripción%20de%20Partitura"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-service w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-xl text-sm font-semibold bg-goldWarm/15 border border-goldWarm/55 text-amber-200 hover:bg-goldWarm hover:text-obsidian"
+                  >
+                    <span>Cotizar Partitura por WhatsApp</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. SERVICIOS Y PAQUETES CLAROS
+         ====================================================================== -->
+    <section id="servicios" class="py-16 sm:py-20 lg:py-24 border-t border-slate-800/60 bg-slateStudio/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-left sm:text-center max-w-3xl sm:mx-auto" data-reveal>
+          <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-cyanElectric mb-2.5">
+            Servicios y Paquetes
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white">
+            Soluciones claras para sonar y verte profesional
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-400 leading-relaxed">
+            Elige el servicio que necesita tu negocio y recibe tu cotización personalizada directo en WhatsApp en minutos.
+          </p>
+        </div>
+
+        <!-- Grid Responsivo: 1 col móvil, 2 cols tablet, 4 cols PC -->
+        <div class="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <!-- Servicio 1: Spot Publicitario -->
+          <article data-reveal data-reveal-delay="0" class="studio-card rounded-2xl p-6 flex flex-col">
+            <div class="w-12 h-12 rounded-2xl bg-cyanElectric/15 border border-cyanElectric/35 flex items-center justify-center text-cyanElectric mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <rect x="9" y="2" width="6" height="11" rx="3" />
+                <path stroke-linecap="round" d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white leading-snug">
+              Spot Publicitario (30s a 1 min)
+            </h3>
+            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+              Guion persuasivo, locución profesional, música libre de derechos y efectos.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanElectric shrink-0"></span>
+                <span>Ideal para perifoneo, radio y redes</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanElectric shrink-0"></span>
+                <span>Entrega en MP3 y WAV de alta calidad</span>
+              </li>
+            </ul>
+            <a
+              id="service-cta-spot"
+              href="https://wa.me/5212215752635?text=Hola,%20quiero%20cotizar%20un%20Spot%20Publicitario%20(30s%20a%201%20min)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-service mt-auto pt-6"
+            >
+              <span class="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-4 py-3 rounded-xl bg-cyanElectric/15 border border-cyanElectric/50 text-sm font-bold text-cyan-100 hover:bg-cyanElectric hover:text-obsidian transition-colors">
+                <span>Cotizar Spot</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </article>
+
+          <!-- Servicio 2: Jingle Original a la Medida -->
+          <article data-reveal data-reveal-delay="80" class="studio-card card-gold rounded-2xl p-6 flex flex-col">
+            <div class="flex items-center justify-between gap-2 mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-goldWarm/15 border border-goldWarm/40 flex items-center justify-center text-goldWarm">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-goldWarm/15 border border-goldWarm/40 text-[11px] font-bold uppercase tracking-wider text-goldWarm">
+                Top Marca
+              </span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white leading-snug">
+              Jingle Original a la Medida
+            </h3>
+            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+              Letra y melodía original, grabación vocal e instrumental profesional.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-goldWarm shrink-0"></span>
+                <span>Canción pegajosa 100% exclusiva</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-goldWarm shrink-0"></span>
+                <span>Mezcla y masterización de estudio</span>
+              </li>
+            </ul>
+            <a
+              id="service-cta-jingle"
+              href="https://wa.me/5212215752635?text=Hola,%20quiero%20cotizar%20un%20Jingle%20Original%20a%20la%20Medida"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-service mt-auto pt-6"
+            >
+              <span class="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-4 py-3 rounded-xl bg-goldWarm/15 border border-goldWarm/55 text-sm font-bold text-amber-200 hover:bg-goldWarm hover:text-obsidian transition-colors">
+                <span>Cotizar Jingle</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </article>
+
+          <!-- Servicio 3: Flyers Publicitarios -->
+          <article data-reveal data-reveal-delay="160" class="studio-card rounded-2xl p-6 flex flex-col">
+            <div class="w-12 h-12 rounded-2xl bg-cyanElectric/15 border border-cyanElectric/35 flex items-center justify-center text-cyanElectric mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 15-5-5L5 21" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white leading-snug">
+              Flyers Publicitarios
+            </h3>
+            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+              Diseño gráfico de alto impacto listo para redes sociales o impresión.
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanElectric shrink-0"></span>
+                <span>Formatos Feed, Historia o Impresión</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyanElectric shrink-0"></span>
+                <span>Diseño enfocado en atraer ventas</span>
+              </li>
+            </ul>
+            <a
+              id="service-cta-flyer"
+              href="https://wa.me/5212215752635?text=Hola,%20quiero%20cotizar%20un%20Flyer%20Publicitario"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-service mt-auto pt-6"
+            >
+              <span class="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-4 py-3 rounded-xl bg-cyanElectric/15 border border-cyanElectric/50 text-sm font-bold text-cyan-100 hover:bg-cyanElectric hover:text-obsidian transition-colors">
+                <span>Cotizar Flyer</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </article>
+
+          <!-- Servicio 4: Transcripción de Partituras -->
+          <article data-reveal data-reveal-delay="240" class="studio-card card-gold rounded-2xl p-6 flex flex-col">
+            <div class="w-12 h-12 rounded-2xl bg-goldWarm/15 border border-goldWarm/40 flex items-center justify-center text-goldWarm mb-5">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6M9 15h6M9 11h3M9 18h4" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-xl text-white leading-snug">
+              Transcripción de Partituras
+            </h3>
+            <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+              Digitalización limpia y precisa de melodías o arreglos (PDF / MIDI).
+            </p>
+            <ul class="mt-4 space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-goldWarm shrink-0"></span>
+                <span>A partir de audio, video o voz</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-goldWarm shrink-0"></span>
+                <span>Notación profesional lista para imprimir</span>
+              </li>
+            </ul>
+            <a
+              id="service-cta-partitura"
+              href="https://wa.me/5212215752635?text=Hola,%20quiero%20cotizar%20una%20Transcripción%20de%20Partitura%20(PDF%20/%20MIDI)"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-service mt-auto pt-6"
+            >
+              <span class="w-full inline-flex items-center justify-center gap-2 min-h-[48px] px-4 py-3 rounded-xl bg-goldWarm/15 border border-goldWarm/55 text-sm font-bold text-amber-200 hover:bg-goldWarm hover:text-obsidian transition-colors">
+                <span>Cotizar Partitura</span>
+                <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. CONFIANZA Y FACILIDADES DE PAGO (Adaptado a México)
+         ====================================================================== -->
+    <section id="garantias" class="py-16 sm:py-20 lg:py-24 border-t border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-goldWarm mb-2.5">
+            Compra con Total Confianza
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white">
+            Garantías y facilidades pensadas para México
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-400 leading-relaxed">
+            Sin trámites complicados ni tarjetas obligatorias. Proceso transparente desde el primer mensaje hasta tu entrega final.
+          </p>
+        </div>
+
+        <!-- Grid Responsivo: 1 col móvil, 2 cols tablet, 4 cols PC -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <!-- Garantía 1 -->
+          <article data-reveal data-reveal-delay="0" class="studio-card rounded-2xl p-6">
+            <div class="w-12 h-12 rounded-2xl bg-cyanElectric/12 border border-cyanElectric/30 flex items-center justify-center text-cyanElectric mb-4">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3 4 7v6c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7l-8-4Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">
+              Proceso Seguro 50% / 50%
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              50% de anticipo para iniciar producción y 50% al aprobar tu muestra previa.
+            </p>
+          </article>
+
+          <!-- Garantía 2 -->
+          <article data-reveal data-reveal-delay="80" class="studio-card rounded-2xl p-6">
+            <div class="w-12 h-12 rounded-2xl bg-whatsapp/15 border border-whatsapp/35 flex items-center justify-center text-whatsapp mb-4">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <rect x="6" y="2" width="12" height="20" rx="2.5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v7m0 0-3-3m3 3 3-3M10 18h4" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">
+              Entrega Directa en WhatsApp
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Recibes tus archivos en alta calidad (MP3/WAV/PDF) listos para descargar en tu celular.
+            </p>
+          </article>
+
+          <!-- Garantía 3 -->
+          <article data-reveal data-reveal-delay="160" class="studio-card card-gold rounded-2xl p-6">
+            <div class="w-12 h-12 rounded-2xl bg-goldWarm/15 border border-goldWarm/35 flex items-center justify-center text-goldWarm mb-4">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <rect x="2" y="5" width="20" height="14" rx="2.5" />
+                <path stroke-linecap="round" d="M2 10h20M6 15h4" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">
+              Pago Fácil Sin Tarjeta
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Aceptamos Transferencia SPEI y Depósito en OXXO.
+            </p>
+          </article>
+
+          <!-- Garantía 4 -->
+          <article data-reveal data-reveal-delay="240" class="studio-card rounded-2xl p-6">
+            <div class="w-12 h-12 rounded-2xl bg-cyanElectric/12 border border-cyanElectric/30 flex items-center justify-center text-cyanElectric mb-4">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">
+              Revisiones Incluidas
+            </h3>
+            <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+              Validamos contigo nombres, precios y pronunciación antes de la entrega final.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. CÓMO FUNCIONA (3 Pasos Animados con Línea Conectora)
+         ====================================================================== -->
+    <section id="proceso" class="py-16 sm:py-20 lg:py-24 border-t border-slate-800/60 bg-slateStudio/25">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-left sm:text-center max-w-3xl sm:mx-auto" data-reveal>
+          <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-cyanElectric mb-2.5">
+            Proceso Simple en 3 Pasos
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white">
+            Cómo funciona tu producción
+          </h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-400 leading-relaxed">
+            De tu primera idea a un audio o diseño listo para vender, sin complicaciones.
+          </p>
+        </div>
+
+        <div class="relative mt-12">
+          <!-- Línea Conectora Horizontal Animada (Tablet / PC) -->
+          <div class="hidden md:block absolute top-10 left-[16%] right-[16%] z-0" aria-hidden="true">
+            <div class="step-connector-horizontal w-full"></div>
+          </div>
+
+          <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Paso 1 -->
+            <div class="relative flex flex-col items-start md:items-center text-left md:text-center h-full" data-reveal data-reveal-delay="0">
+              <div class="flex items-center gap-4 md:flex-col md:gap-5 w-full md:h-full">
+                <div class="relative shrink-0">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-cyanElectric/20 to-slateStudio border border-cyanElectric/50 flex items-center justify-center shadow-[0_0_28px_-8px_rgba(0,210,255,0.65)]">
+                    <span class="font-display font-extrabold text-2xl sm:text-3xl text-cyanElectric">01</span>
+                  </div>
+                </div>
+                <div class="studio-card rounded-2xl p-5 sm:p-6 flex-1 w-full">
+                  <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                    Cuéntanos tu idea
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+                    Nos escribes por WhatsApp qué vendes o qué necesitas.
+                  </p>
+                </div>
+              </div>
+              <!-- Conector Vertical Animado (Solo Móvil) -->
+              <div class="md:hidden ml-8 my-1 h-8 flex items-center justify-center" aria-hidden="true">
+                <div class="step-connector-vertical h-full"></div>
+              </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="relative flex flex-col items-start md:items-center text-left md:text-center h-full" data-reveal data-reveal-delay="120">
+              <div class="flex items-center gap-4 md:flex-col md:gap-5 w-full md:h-full">
+                <div class="relative shrink-0">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-goldWarm/20 to-slateStudio border border-goldWarm/55 flex items-center justify-center shadow-[0_0_28px_-8px_rgba(245,158,11,0.6)]">
+                    <span class="font-display font-extrabold text-2xl sm:text-3xl text-goldWarm">02</span>
+                  </div>
+                </div>
+                <div class="studio-card card-gold rounded-2xl p-5 sm:p-6 flex-1 w-full">
+                  <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                    Producimos tu proyecto
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+                    Creamos guion, grabamos, editamos y enviamos muestra.
+                  </p>
+                </div>
+              </div>
+              <!-- Conector Vertical Animado (Solo Móvil) -->
+              <div class="md:hidden ml-8 my-1 h-8 flex items-center justify-center" aria-hidden="true">
+                <div class="step-connector-vertical h-full"></div>
+              </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="relative flex flex-col items-start md:items-center text-left md:text-center h-full" data-reveal data-reveal-delay="240">
+              <div class="flex items-center gap-4 md:flex-col md:gap-5 w-full md:h-full">
+                <div class="relative shrink-0">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-whatsapp/20 to-slateStudio border border-whatsapp/50 flex items-center justify-center shadow-[0_0_28px_-8px_rgba(37,211,102,0.55)]">
+                    <span class="font-display font-extrabold text-2xl sm:text-3xl text-whatsapp">03</span>
+                  </div>
+                </div>
+                <div class="studio-card rounded-2xl p-5 sm:p-6 flex-1 w-full">
+                  <h3 class="font-display font-bold text-lg sm:text-xl text-white">
+                    Recibe y vende más
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 leading-relaxed">
+                    Liquidas por OXXO o transferencia y recibes tu archivo final.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. PREGUNTAS FRECUENTES (Acordeón Animado Suave)
+         ====================================================================== -->
+    <section id="faq" class="py-16 sm:py-20 lg:py-24 border-t border-slate-800/60">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-left sm:text-center" data-reveal>
+          <span class="inline-block text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-cyanElectric mb-2.5">
+            Resolvemos tus Dudas
+          </span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight text-white">
+            Preguntas Frecuentes
+          </h2>
+        </div>
+
+        <div class="mt-10 space-y-4">
+          <!-- FAQ 1 -->
+          <article class="faq-item studio-card rounded-2xl" data-open="true" data-reveal data-reveal-delay="0">
+            <h3>
+              <button
+                id="faq-btn-1"
+                type="button"
+                aria-expanded="true"
+                aria-controls="faq-panel-1"
+                class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-5 min-h-[60px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric rounded-2xl"
+              >
+                <span class="font-display font-semibold text-base sm:text-lg text-white">
+                  ¿En cuánto tiempo entregan mi spot o diseño?
+                </span>
+                <svg class="faq-chevron w-5 h-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+            </h3>
+            <div id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" class="faq-content">
+              <div class="faq-inner">
+                <p class="px-5 sm:px-6 pb-5 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                  Entre 24 y 48 horas hábiles una vez confirmado tu guion e iniciado tu proyecto. Si tienes una urgencia para perifoneo o evento próximo, escríbenos y verificamos disponibilidad exprés.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- FAQ 2 -->
+          <article class="faq-item studio-card rounded-2xl" data-open="false" data-reveal data-reveal-delay="60">
+            <h3>
+              <button
+                id="faq-btn-2"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-panel-2"
+                class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-5 min-h-[60px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric rounded-2xl"
+              >
+                <span class="font-display font-semibold text-base sm:text-lg text-white">
+                  ¿Puedo usar mi audio en perifoneo y redes sociales sin problemas de copyright?
+                </span>
+                <svg class="faq-chevron w-5 h-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+            </h3>
+            <div id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" class="faq-content">
+              <div class="faq-inner">
+                <p class="px-5 sm:px-6 pb-5 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                  Sí, usamos música y efectos con licencia comercial para que puedas reproducir tu spot en perifoneo, Facebook, Instagram, TikTok, radio local o directamente en tu negocio sin bloqueos ni reclamos.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- FAQ 3 -->
+          <article class="faq-item studio-card rounded-2xl" data-open="false" data-reveal data-reveal-delay="120">
+            <h3>
+              <button
+                id="faq-btn-3"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-panel-3"
+                class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-5 min-h-[60px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric rounded-2xl"
+              >
+                <span class="font-display font-semibold text-base sm:text-lg text-white">
+                  ¿Qué necesito enviar para cotizar una partitura?
+                </span>
+                <svg class="faq-chevron w-5 h-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+            </h3>
+            <div id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" class="faq-content">
+              <div class="faq-inner">
+                <p class="px-5 sm:px-6 pb-5 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                  Un audio, video o grabación tarareando o tocando la melodía directo desde tu celular por WhatsApp. Con eso analizamos la duración e instrumentación y te damos tu cotización exacta.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- FAQ 4 -->
+          <article class="faq-item studio-card rounded-2xl" data-open="false" data-reveal data-reveal-delay="180">
+            <h3>
+              <button
+                id="faq-btn-4"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-panel-4"
+                class="faq-trigger w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-5 min-h-[60px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyanElectric rounded-2xl"
+              >
+                <span class="font-display font-semibold text-base sm:text-lg text-white">
+                  ¿Cómo realizo mi pago?
+                </span>
+                <svg class="faq-chevron w-5 h-5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+            </h3>
+            <div id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" class="faq-content">
+              <div class="faq-inner">
+                <p class="px-5 sm:px-6 pb-5 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                  Por transferencia bancaria SPEI o depósito directo en cualquier tienda OXXO. Trabajamos con 50% de anticipo al iniciar y 50% al aprobar tu muestra previa.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Banner CTA Final Persuasivo -->
+        <div
+          data-reveal
+          class="mt-12 sm:mt-16 console-card rounded-3xl p-6 sm:p-8 lg:p-10 text-center"
+        >
+          <span class="inline-block text-xs font-bold uppercase tracking-[0.16em] text-goldWarm mb-2">
+            ¿Listo para hacer sonar tu marca?
+          </span>
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">
+            Cotiza hoy tu spot, jingle, flyer o partitura sin compromiso
+          </h3>
+          <p class="mt-2.5 text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
+            Escríbenos ahora por WhatsApp y recibe asesoría rápida para que tu negocio destaque desde el primer segundo.
+          </p>
+          <div class="mt-6 flex justify-center">
+            <a
+              id="final-cta-whatsapp"
+              href="https://wa.me/5212215752635?text=Hola,%20vengo%20de%20su%20página%20web%20y%20quiero%20cotizar%20un%20proyecto"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp btn-whatsapp-pulse w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[54px] px-7 py-3.5 rounded-2xl text-base"
+            >
+              <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.34.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.86 11.86 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+              </svg>
+              <span>Enviar Mensaje por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       8. FOOTER Y BOTÓN FLOTANTE DE WHATSAPP
+       ======================================================================== -->
+  <footer class="relative z-10 border-t border-slate-800/80 bg-obsidian/90 pt-12 pb-24 sm:pb-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <!-- Marca -->
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-cyanElectric/15 border border-cyanElectric/35">
+              <svg class="w-5 h-5 text-cyanElectric" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="9" y="3" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.9" />
+                <path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6" stroke="#F59E0B" stroke-width="1.9" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="font-display font-bold text-lg text-white">
+              Publicidad, Spots y Jingles <span class="text-cyanElectric">MX</span>
+            </span>
+          </div>
+          <p class="mt-2.5 text-sm text-slate-400">
+            Atención personalizada de Lunes a Sábado • Envíos digitales a todo México 🇲🇽
+          </p>
+        </div>
+
+        <!-- Enlace Oficial a Facebook -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a
+            id="footer-facebook-link"
+            href="https://www.facebook.com/search/top?q=Publicidad%2C%20Spots%20y%20Jingles%20MX"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 min-h-[48px] px-4 py-2.5 rounded-xl bg-slateStudio/80 border border-slate-700/80 text-sm font-semibold text-slate-200 hover:border-cyanElectric/60 hover:text-cyanElectric transition-colors"
+          >
+            <svg class="w-5 h-5 text-[#1877F2] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z" />
+            </svg>
+            <span>Facebook: Publicidad, Spots y Jingles MX</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-slate-800/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
+        <p>© 2026 Publicidad, Spots y Jingles MX. Todos los derechos reservados.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#demos" class="hover:text-slate-300 transition-colors">Demos</a>
+          <a href="#servicios" class="hover:text-slate-300 transition-colors">Servicios</a>
+          <a href="#garantias" class="hover:text-slate-300 transition-colors">Pagos SPEI / OXXO</a>
+          <a href="#faq" class="hover:text-slate-300 transition-colors">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón Flotante de WhatsApp (Ajustado para no estorbar textos en móvil) -->
+  <a
+    id="floating-whatsapp-btn"
+    href="https://wa.me/5212215752635?text=Hola,%20vengo%20de%20su%20página%20web%20y%20quiero%20cotizar%20un%20proyecto"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Cotiza aquí por WhatsApp"
+    class="floating-wa-btn btn-whatsapp btn-whatsapp-pulse fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 inline-flex items-center gap-2 min-h-[48px] px-4 py-2.5 sm:px-5 sm:py-3 rounded-full text-sm shadow-2xl"
+  >
+    <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.49 0 .14 5.34.14 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.29-1.65a11.86 11.86 0 0 0 5.77 1.47h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.42ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.52-5.26c0-5.46 4.44-9.9 9.9-9.9 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.88-9.9 9.88Zm5.43-7.41c-.3-.15-1.76-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+    </svg>
+    <span class="font-bold whitespace-nowrap">Cotiza aquí</span>
+  </a>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
