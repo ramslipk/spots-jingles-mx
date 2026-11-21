@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ramslipk.github.io/spots-jingles-mx/sitemap.xml
